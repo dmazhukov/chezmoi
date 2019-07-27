@@ -1,0 +1,34 @@
+alias cd..='cd ..'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias h='history'
+alias a='bat'
+#alias g='/usr/local/bin/s'
+alias r='ranger'
+alias l='exa --classify --all --grid --time-style iso'
+alias tre='tree -L 2'
+alias grid='exa --recurse -L 2 -l --grid'
+alias publicip='curl ipinfo.io/ip'
+
+alias s='git status'
+alias dif='git diff'
+alias gld='git log --pretty=format:%cd --date=short | uniq -c'
+alias gac='git add . && git commit -m'
+
+alias dps='docker ps --all --format "table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
+alias di='docker images'
+alias dsp='docker system prune'
+alias dis='docker images --format '{{.Size}}\t{{.Repository}}' | sort -r'
+alias dn='docker network ls'
+alias dv='docker volume ls'
+alias dc="docker-compose"
+
+alias k='kubectl'
+alias ktx='kubectx'
+alias kns='kubens'
+alias ktl='kubetail'
+alias ksys='k get --namespace kube-system'
+alias kall='k get --all-namespaces'
