@@ -1,13 +1,16 @@
-# laughedelic/brew-completions
-# edc/bass
-jdxcode/gh
-# brigand/fast-nvm-fish
-rcorrear/plugin-kubectl
-evanlucas/fish-kubectl-completions
-aliz-ai/google-cloud-sdk-fish-completion
-Ladicle/fish-kubectl-prompt
-halostatue/fish-fzf
-shinriyo/breeze
-jorgebucaran/fish-bax
-halostatue/fish-brew
+fisherman/done
+fisherman/fzf
+fisherman/getopts
+fisherman/gitignore
+fishpkg/fish-humanize-duration
+fisherman/pyenv
+fishpkg/fish-spin
+fisherman/z
+yyuu/pyenv
+dann1/fish-tools
 halostatue/fish-utils
+decors/fish-lscolors
+rcorrear/plugin-kubectl
+misterch0c/fishextract
+rstacruz/fish-autols
+otms61/fish-pet
