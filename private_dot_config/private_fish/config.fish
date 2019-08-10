@@ -55,7 +55,7 @@ set -gx TERM xterm-256color
 set -gx CLI_COLOR 1
 
 set -Ux GOROOT /usr/local/opt/go/libexec
-set -Ux GOPATH /Users/d/go
+set -Ux GOPATH $HOME/go
 set -Ux GOBIN $GOPATH/bin
 
 set -x G_FILENAME_ENCODING @locale,UTF-8
@@ -128,20 +128,20 @@ source (which env_parallel.fish)
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]
-and source /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
+[ -f $HOME/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]
+and source $HOME/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]
-and source /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
+[ -f $HOME/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]
+and source $HOME/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]
-and source /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
+[ -f $HOME/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]
+and source $HOME/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /Users/d/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
-and source /Users/d/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
+[ -f $HOME/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
+and source $HOME/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
 # # begin -h completion
 # -h --completion-fish | source
 # # end -h completion

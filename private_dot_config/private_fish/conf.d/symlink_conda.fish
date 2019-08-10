@@ -1,1 +1,1 @@
-/Users/d/miniconda3/etc/fish/conf.d/conda.fish
+$HOME/miniconda3/etc/fish/conf.d/conda.fish
