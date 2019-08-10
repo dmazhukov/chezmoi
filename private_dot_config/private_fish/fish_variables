@@ -1,180 +1,0 @@
-# This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR --export ALIBABA_CLOUD_ACCESS_KEY_ID:LTAIIQ0OJen7bbCT
-SETUVAR --export ALIBABA_CLOUD_ACCESS_KEY_SECRET:JfnXttHjYk4h3DyepZLuZPVexCAnFd
-SETUVAR --export ALIBABA_CLOUD_ACCOUNT_ID:5071061505237930
-SETUVAR --export BRIGADE_NAMESPACE:banzaicloud
-SETUVAR --export CF_API_DOMAIN:efefef.cf
-SETUVAR --export CF_API_EMAIL:dmitry0983@gmail.com
-SETUVAR --export CF_API_KEY:7e7f8f4b6c04933dd378bda50f6787504892e
-SETUVAR --export CLI_COLOR:1
-SETUVAR --export CLOUDFLARE_AUTH_EMAIL:dmitry0983@gmail.com
-SETUVAR --export CLOUDFLARE_AUTH_KEY:7e7f8f4b6c04933dd378bda50f6787504892e
-SETUVAR --export CLOUDFLARE_ZONE_ID:1eb99af205221ff128ecfc6ec8ee6b71
-SETUVAR --export DIGITALOCEAN_TOKEN:c286923dc9c809fcbfae22767f421e5a2ea2915ea46104799b48909f03cf8dd6
-SETUVAR --export EDITOR:micro
-SETUVAR --export FZF_CD_COMMAND:fd --type d
-SETUVAR --export FZF_CD_WITH_HIDDEN_COMMAND:fd --type d --hidden --follow --exclude ".git"
-SETUVAR FZF_DEFAULT_OPTS:--height 40%
-SETUVAR --export FZF_FIND_FILE_COMMAND:fd --type f
-SETUVAR --export FZF_FIND_FILE_OPTS:--preview='string match -qe binary (file --mime {}) && echo {} is a binary file 2>&1 || bat --style=numbers --color=always {} 2>&1 || cat {} 2>&1 || tree -C {} | head -200' --select-1 --exit-0
-SETUVAR FZF_LEGACY_KEYBINDINGS:1
-SETUVAR FZF_PREVIEW_DIR_CMD:ls
-SETUVAR FZF_PREVIEW_FILE_CMD:head -n 10
-SETUVAR --export FZF_REVERSE_ISEARCH_OPTS:--preview='echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
-SETUVAR FZF_TMUX_HEIGHT:40%
-SETUVAR --export GITHUB_OAUTH_TOKEN:f280aa80c76fb3b8fde4ae6a1f11f3411d0cbf19
-SETUVAR --export GIT_PAGER:less
-SETUVAR --export GOBIN:$HOME/go/bin
-SETUVAR --export --path GOPATH:$HOME/go
-SETUVAR --export GOROOT:/usr/local/opt/go/libexec
-SETUVAR --export HIGHLIGHT_OPTIONS:--style=edit-godot-Otruecolor--failsafe--canvas=120
-SETUVAR --export LC_ALL:en_US.UTF-8
-SETUVAR --export LC_CTYPE:en_US.UTF-8
-SETUVAR --export MANPAGER:most
-SETUVAR --export N_PREFIX:$HOME/n
-SETUVAR --export OP_SESSION_my:DsD-eNnE1maerS69Hi_Wot1kBdOS5gcRQDs7SPDQv-Y
-SETUVAR --export PAGER:less
-SETUVAR --export SSH_KEY:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrMY2PNF3DZH62qTn8WrSsnG5L/N9fq81aGCYlOKOAGaemHLtAQbktYDKi7PGoGR4iatnoKjD43ob+wnNqoJcPCkb7eO7uIMmrKPvXQXhWUrKObkAmiwZfTtiHKYppmwaUhztVT40gJJHTWGav5o45rmXcWlhcHS8Dt20qUHJ1zqgcLxdZQ0I/lv9G2OIwBOaP+KBv0HqwYz61fsFa0fb7LefuWv4XFZKvrOSKkWFnO//B5EpCL4Uj7h9rS62q20NauuQ+7xfQIAJN+AUGXf04Jb0zG/hW9neuIq9xLtNjCHnqoL+FHS6Pw0GKqxFsJhDzOceB5CELQfL+pd15qQG5 dmitry@MacBook-Pro-Dmitry.local
-SETUVAR --export TERM:xterm-256color
-SETUVAR --export XDG_CONFIG_HOME:$HOME/.config
-SETUVAR __brew_prefix:/usr/local
-SETUVAR __fish_init_2_39_8:
-SETUVAR __fish_init_2_3_0:
-SETUVAR __fish_init_3_x:
-SETUVAR __fzf_cd_command:fd
-SETUVAR __fzf_cd_with_hidden_command:fd
-SETUVAR __fzf_find_file_command:fd
-SETUVAR __kube_ps_enabled:0
-SETUVAR _fish_abbr_aa:--all-namespaces
-SETUVAR _fish_abbr_bci:brew cask install
-SETUVAR _fish_abbr_bih:brew install --HEAD
-SETUVAR _fish_abbr_bii:brew install
-SETUVAR _fish_abbr_bsr:brew search --desc
-SETUVAR _fish_abbr_c:cht.sh
-SETUVAR _fish_abbr_dr:docker run -it --rm
-SETUVAR _fish_abbr_ds:docker search --no-trunc --limit 100
-SETUVAR _fish_abbr_fs:functions
-SETUVAR _fish_abbr_g:git
-SETUVAR _fish_abbr_ga:git add
-SETUVAR _fish_abbr_gaa:git add --all
-SETUVAR _fish_abbr_gapa:git add --patch
-SETUVAR _fish_abbr_gb:git branch -vv
-SETUVAR _fish_abbr_gba:git branch -a -v
-SETUVAR _fish_abbr_gbs:git bisect
-SETUVAR _fish_abbr_gbsb:git bisect bad
-SETUVAR _fish_abbr_gbsg:git bisect good
-SETUVAR _fish_abbr_gbsr:git bisect reset
-SETUVAR _fish_abbr_gbss:git bisect start
-SETUVAR _fish_abbr_gc:git commit -v
-SETUVAR _fish_abbr_gc_21_:git commit -v --amend
-SETUVAR _fish_abbr_gca:git commit -v -a
-SETUVAR _fish_abbr_gca_21_:git commit -v -a --amend
-SETUVAR _fish_abbr_gcam:git commit -a -m
-SETUVAR _fish_abbr_gcan_21_:git commit -v -a --no-edit --amend
-SETUVAR _fish_abbr_gcb:git checkout -b
-SETUVAR _fish_abbr_gcl:git clone
-SETUVAR _fish_abbr_gcm:git commit -m
-SETUVAR _fish_abbr_gcn_21_:git commit -v --no-edit --amend
-SETUVAR _fish_abbr_gco:git checkout
-SETUVAR _fish_abbr_gcod:git checkout develop
-SETUVAR _fish_abbr_gcom:git checkout master
-SETUVAR _fish_abbr_gcount:git shortlog -sn
-SETUVAR _fish_abbr_gcp:git cherry-pick
-SETUVAR _fish_abbr_gd:git diff
-SETUVAR _fish_abbr_gdca:git diff --cached
-SETUVAR _fish_abbr_gf:git fetch
-SETUVAR _fish_abbr_gfa:git fetch --all --prune
-SETUVAR _fish_abbr_gfb:git flow bugfix
-SETUVAR _fish_abbr_gfbs:git flow bugfix start
-SETUVAR _fish_abbr_gfbt:git flow bugfix track
-SETUVAR _fish_abbr_gff:git flow feature
-SETUVAR _fish_abbr_gffs:git flow feature start
-SETUVAR _fish_abbr_gfft:git flow feature track
-SETUVAR _fish_abbr_gfh:git flow hotfix
-SETUVAR _fish_abbr_gfhs:git flow hotfix start
-SETUVAR _fish_abbr_gfht:git flow hotfix track
-SETUVAR _fish_abbr_gfm:git fetch origin master --prune; and git merge FETCH_HEAD
-SETUVAR _fish_abbr_gfo:git fetch origin
-SETUVAR _fish_abbr_gfp:git flow publish
-SETUVAR _fish_abbr_gfr:git flow release
-SETUVAR _fish_abbr_gfrs:git flow release start
-SETUVAR _fish_abbr_gfrt:git flow release track
-SETUVAR _fish_abbr_gfs:git flow support
-SETUVAR _fish_abbr_gfss:git flow support start
-SETUVAR _fish_abbr_gfst:git flow support track
-SETUVAR _fish_abbr_gignore:git update-index --assume-unchanged
-SETUVAR _fish_abbr_gl:git pull
-SETUVAR _fish_abbr_glg:git log --stat --max-count=10
-SETUVAR _fish_abbr_glgg:git log --graph --max-count=10
-SETUVAR _fish_abbr_glgga:git log --graph --decorate --all
-SETUVAR _fish_abbr_glo:git log --oneline --decorate --color
-SETUVAR _fish_abbr_glog:git log --oneline --decorate --color --graph
-SETUVAR _fish_abbr_gloo:git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
-SETUVAR _fish_abbr_gm:git merge
-SETUVAR _fish_abbr_gmt:git mergetool --no-prompt
-SETUVAR _fish_abbr_gp:git push
-SETUVAR _fish_abbr_gp_21_:git push --force-with-lease
-SETUVAR _fish_abbr_gpv:git push --no-verify
-SETUVAR _fish_abbr_gpv_21_:git push --no-verify --force-with-lease
-SETUVAR _fish_abbr_gr:git remote -vv
-SETUVAR _fish_abbr_grb:git rebase
-SETUVAR _fish_abbr_grba:git rebase --abort
-SETUVAR _fish_abbr_grbc:git rebase --continue
-SETUVAR _fish_abbr_grbi:git rebase --interactive
-SETUVAR _fish_abbr_grbm:git rebase master
-SETUVAR _fish_abbr_grbs:git rebase --skip
-SETUVAR _fish_abbr_grh:git reset HEAD
-SETUVAR _fish_abbr_grhh:git reset HEAD --hard
-SETUVAR _fish_abbr_grmv:git remote rename
-SETUVAR _fish_abbr_grrm:git remote remove
-SETUVAR _fish_abbr_grset:git remote set-url
-SETUVAR _fish_abbr_grup:git remote update
-SETUVAR _fish_abbr_grv:git remote -v
-SETUVAR _fish_abbr_gscam:git commit -S -a -m
-SETUVAR _fish_abbr_gsd:git svn dcommit
-SETUVAR _fish_abbr_gsh:git show
-SETUVAR _fish_abbr_gsr:git svn rebase
-SETUVAR _fish_abbr_gss:git status -s
-SETUVAR _fish_abbr_gst:git status
-SETUVAR _fish_abbr_gsta:git stash
-SETUVAR _fish_abbr_gstd:git stash drop
-SETUVAR _fish_abbr_gstp:git stash pop
-SETUVAR _fish_abbr_gsts:git stash show --text
-SETUVAR _fish_abbr_gunignore:git update-index --no-assume-unchanged
-SETUVAR _fish_abbr_gup:git pull --rebase
-SETUVAR _fish_abbr_gwch:git whatchanged -p --abbrev-commit --pretty=medium
-SETUVAR _fish_abbr_wa:which -a
-SETUVAR fish_color_autosuggestion:9C9C9C
-SETUVAR fish_color_cancel:-r
-SETUVAR fish_color_command:F4F4F4
-SETUVAR fish_color_comment:B0B0B0
-SETUVAR fish_color_cwd:green
-SETUVAR fish_color_cwd_root:red
-SETUVAR fish_color_end:969696
-SETUVAR fish_color_error:FFA779
-SETUVAR fish_color_escape:00a6b2
-SETUVAR fish_color_history_current:--bold
-SETUVAR fish_color_host:normal
-SETUVAR fish_color_match:--background=brblue
-SETUVAR fish_color_normal:normal
-SETUVAR fish_color_operator:00a6b2
-SETUVAR fish_color_param:A0A0F0
-SETUVAR fish_color_quote:666A80
-SETUVAR fish_color_redirection:FAFAFA
-SETUVAR fish_color_search_match:bryellow--background=brblack
-SETUVAR fish_color_selection:white--bold--background=brblack
-SETUVAR fish_color_status:red
-SETUVAR fish_color_user:brgreen
-SETUVAR fish_color_valid_path:--underline
-SETUVAR fish_greeting:Welcome to fish, the friendly interactive shell
-SETUVAR fish_key_bindings:fish_default_key_bindings
-SETUVAR fish_pager_color_completion:--magenta
-SETUVAR fish_pager_color_description:B3A06Dyellow
-SETUVAR fish_pager_color_prefix:white--bold--underline
-SETUVAR fish_pager_color_progress:brwhite--background=cyan
-SETUVAR fish_prompt_pwd_dir_length:6
-SETUVAR --export fish_term24bit:1
-SETUVAR fish_term256:1
-SETUVAR fish_user_paths:/usr/local/sbin$HOME/miniconda3/bin$HOME/n/bin$HOME/.config/yarn/global/node_modules/.bin/opt/local/bin$HOME/.yarn/bin$HOME/.cargo/bin/usr/local/lib/ruby/gems/2.6.0/bin$HOME/.krew/bin$HOME/go/bin$HOME/bin/opt/local/sbin$HOME/dotfiles/bin/usr/libexec
-SETUVAR grc_plugin_execs:catcvsdfdiffdiggccg++lsifconfigmakemountmtrnetstatpingpstailtraceroutewdiffblkiddudnfdockerdocker-machineidipiostatlastlsattrlsblklspcilsmodlsofgetfaclgetseboolulimituptimenmapfdiskfindmntfreesemanagesarsssysctlsystemctlstatshowmounttcpdumptune2fsvmstatwwhodf

@@ -1,0 +1,87 @@
+#!/bin/zsh
+
+export LESS='-R -f -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+
+dir="${1:-$PWD}"
+while clear; : ${CLI_FINDER_MODE:="tree"}; out="$(
+    if [[ $CLI_FINDER_MODE == "tree" ]]; then \
+        tree -a -C -I ".git" --charset=C $dir; \
+    else \
+        (builtin cd $dir; \
+        find . -path '*.git*' -prune -o -print \
+        | while read line; do [ -d "$line" ] && echo "$line/" || echo "$line"; done \
+        | sed -e 's|^\./||;/^$/d' \
+        | perl -pe 's/^(.*\/)(.*)$/\033[34m$1\033[m$2/' \
+        ); \
+    fi \
+    | fzf --ansi --no-sort --reverse \
+    --query="$q" --print-query --expect=ctrl-v,ctrl-l,ctrl-r,ctrl-c,ctrl-i
+    )"; do
+
+    q="$(head -1 <<< "$out")"
+    k="$(head -2 <<< "$out" | tail -1)"
+    res="$(sed '1,2d;/^$/d' <<< "$out")"
+    [ -z "$res" ] && continue
+
+    t="$(
+    if [[ $CLI_FINDER_MODE == "tree" ]]; then
+        ok=0
+        arr=(${(@f)"$(tree -a -I ".git" --charset=C $dir)"})
+        for ((i=1; i<=$#arr; i++)); do
+            if [[ $arr[i] == $res ]]; then
+                n=$i
+                break
+            fi
+        done
+        arr=(${(@f)"$(tree -f -a -I ".git" --charset=C $dir)"})
+        perl -pe 's/^(( *(\||`)( |`|-)+)+)//' <<<$arr[n] \
+            | sed -e 's/ -> .*$//'
+    else
+        echo $dir/$res
+    fi
+    )"
+
+    case "$k" in
+        ctrl-r)
+            if [[ $CLI_FINDER_MODE == "list" ]]; then
+                CLI_FINDER_MODE="tree"
+            else
+                CLI_FINDER_MODE="list"
+            fi
+            continue
+            ;;
+        ctrl-l)
+            if [[ -d $t ]]; then
+                {
+                    ls -dl "$t"
+                    ls -l "$t"
+                } | less
+            else
+                if (( $+commands[pygmentize] )); then
+                    get_styles="from pygments.styles import get_all_styles
+                    styles = list(get_all_styles())
+                    print('\n'.join(styles))"
+                    styles=( $(sed -e 's/^  *//g' <<<"$get_styles" | python) )
+                    style=${${(M)styles:#solarized}:-default}
+                    export LESSOPEN="| pygmentize -O style=$style -f console256 -g %s"
+                fi
+                less +Gg "$t"
+            fi
+            ;;
+        ctrl-v)
+            $EDITOR "$t"
+            ;;
+        ctrl-c)
+            if (( $+commands[pbcopy] )); then
+                echo "$t" | tr -d '\n' | pbcopy
+            fi
+            exit
+            ;;
+        ctrl-i)
+            ;;
+        *)
+            echo "$t"
+            exit
+            ;;
+    esac
+done
