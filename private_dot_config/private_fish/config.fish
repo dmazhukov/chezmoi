@@ -1,3 +1,16 @@
+path:unique "$HOME/.porter"
+path:unique "/usr/local/sbin"
+path:unique "/usr/local/sbin"
+path:unique "$HOME/go/bin"
+path:unique "$HOME/.krew/bin"
+path:unique "$HOME/dotfiles/bin"
+path:unique "$HOME/.local/bin"
+path:unique "/usr/local/opt/ruby/bin"
+path:unique "/usr/local/lib/ruby/gems/2.6.0/bin"
+path:unique "$HOME/.cargo/bin"
+path:unique "$HOME/bin"
+
+
 if status --is-interactive
     set -g fish_color_cwd 87af5f
     set -g fish_color_cwd_root 5f0000
@@ -10,7 +23,7 @@ if status --is-interactive
     set -g fish_color_operator d7d7d7
     set -g fish_color_param 5f87af
     set -g fish_color_quote d7af5f
-    set -g fish_color_redirection normal
+    set -g fish_color_redirection --underline
     set -g fish_color_search_match --background=red --bold
     set -g fish_color_status 5f0000
     set -g fish_color_user 5f875f
@@ -19,8 +32,8 @@ if status --is-interactive
     set -g fish_color_separator 999
     set -g fish_pager_color_completion --bold
     set -g fish_pager_color_description 555 yellow
-    set -g fish_pager_color_prefix cyan
-    set -g fish_pager_color_progress cyan
+    set -g fish_pager_color_prefix red
+    set -g fish_pager_color_progress brown
 
 
 
@@ -37,16 +50,6 @@ if status --is-interactive
 
     setpcg "/usr/local/Homebrew/completions/fish"
 
-    path:unique "/opt/local/sbin"
-    path:unique "/usr/local/sbin"
-    path:unique "$HOME/bin"
-    path:unique "$HOME/go/bin"
-    path:unique "$HOME/.krew/bin"
-    path:unique "$HOME/dotfiles/bin"
-    path:unique "$HOME/.local/bin"
-    path:unique "/usr/local/opt/ruby/bin"
-    path:unique "/usr/local/lib/ruby/gems/2.6.0/bin"
-
     set -x LC_ALL en_US.UTF-8
     set -x LC_CTYPE en_US.UTF-8
     set -x EDITOR micro
@@ -54,6 +57,7 @@ if status --is-interactive
 
     set -x TERM xterm-256color
     set -x CLI_COLOR 1
+    set -x CLICOLOR 1
 
     set -Ux GOROOT /usr/local/opt/go/libexec
     set -Ux GOPATH $HOME/go
@@ -67,8 +71,10 @@ if status --is-interactive
     #. ~/.servers
 end
 [ -f ~/.aliases ]
-and cat ~/.aliases | sed -e 's/=/ /' -e 's/alias /alias -s /' | eval
+and cat ~/.aliases | sed -e 's/=/ /' -e 's/alias /alias /' | eval
 if status --is-interactive
+    set -x PEARL_ROOT /Users/d/.local/share/pearl
+    source /Users/d/.local/share/pearl/boot/fish/pearl.fish
 
     [ -f /usr/local/share/autojump/autojump.fish ]
     and . /usr/local/share/autojump/autojump.fish
@@ -152,3 +158,4 @@ if status --is-interactive
     # --help --completion-fish | source
     # # end --help completion
     __fs
+end
