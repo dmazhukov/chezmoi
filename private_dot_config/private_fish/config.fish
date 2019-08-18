@@ -1,5 +1,5 @@
 path:unique "$HOME/.porter"
-path:unique "/usr/local/sbin"
+path:unique "/usr/local/bin"
 path:unique "/usr/local/sbin"
 path:unique "$HOME/go/bin"
 path:unique "$HOME/.krew/bin"
@@ -8,8 +8,14 @@ path:unique "$HOME/.local/bin"
 path:unique "/usr/local/opt/ruby/bin"
 path:unique "/usr/local/lib/ruby/gems/2.6.0/bin"
 path:unique "$HOME/.cargo/bin"
-path:unique "$HOME/bin"
-
+path:unique "/usr/local/opt/man-db/libexec/bin"
+path:unique "/usr/local/opt/gnu-getopt/bin"
+path:unique "/usr/local/opt/file-formula/bin"
+#path:unique "/usr/local/opt/findutils/libexec/gnubin"
+path:unique "/usr/local/opt/file-formula/bin"
+#should be last
+path:before "$HOME/bin"
+path:make_unique
 
 if status --is-interactive
     set -g fish_color_cwd 87af5f
@@ -31,7 +37,7 @@ if status --is-interactive
     set -g fish_color_dimmed 555
     set -g fish_color_separator 999
     set -g fish_pager_color_completion --bold
-    set -g fish_pager_color_description 555 yellow
+    set -g fish_pager_color_description yellow
     set -g fish_pager_color_prefix red
     set -g fish_pager_color_progress brown
 
@@ -158,4 +164,10 @@ if status --is-interactive
     # --help --completion-fish | source
     # # end --help completion
     __fs
+
+
+    #should be last
+    path:before "$HOME/bin"
+    path:make_unique
+
 end
