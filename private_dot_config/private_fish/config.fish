@@ -77,10 +77,10 @@ if status --is-interactive
     #. ~/.servers
 end
 [ -f ~/.aliases ]
-and cat ~/.aliases | sed -e 's/=/ /' -e 's/alias /alias /' | eval
+and cat ~/.aliases | sed -e 's/=/ /' -e 's/alias/alias/' | eval
 if status --is-interactive
-    set -x PEARL_ROOT /Users/d/.local/share/pearl
-    source /Users/d/.local/share/pearl/boot/fish/pearl.fish
+    set -x PEARL_ROOT $HOME/.local/share/pearl
+    source $HOME/.local/share/pearl/boot/fish/pearl.fish
 
     [ -f /usr/local/share/autojump/autojump.fish ]
     and . /usr/local/share/autojump/autojump.fish
@@ -142,20 +142,20 @@ if status --is-interactive
 
     # tabtab source for serverless package
     # uninstall by removing these lines or running `tabtab uninstall serverless`
-    [ -f /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]
-    and source /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
+    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]
+    and source $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
     # tabtab source for sls package
     # uninstall by removing these lines or running `tabtab uninstall sls`
-    [ -f /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]
-    and source /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
+    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]
+    and source $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
     # tabtab source for slss package
     # uninstall by removing these lines or running `tabtab uninstall slss`
-    [ -f /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]
-    and source /Users/d/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
+    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]
+    and source $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
     # tabtab source for yarn package
     # uninstall by removing these lines or running `tabtab uninstall yarn`
-    [ -f /Users/d/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
-    and source /Users/d/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
+    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
+    and source $XDG_CONFIG_HOME/yarn/global/node_modules/tabtab/.completions/yarn.fish
     # # begin -h completion
     # -h --completion-fish | source
     # # end -h completion
