@@ -15,6 +15,7 @@ function __help_hl --description 'Run commandline with color'
         # echo.BoldYellow $oldCmd
         echo
         eval "$cmdline --help 2>&1 | ansifilter | $hlcmd;"
+        echo
         commandline -f repaint
     end
 end

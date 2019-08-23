@@ -1,18 +1,36 @@
-path:unique "$HOME/.porter"
-path:unique "/usr/local/bin"
-path:unique "/usr/local/sbin"
-path:unique "$HOME/go/bin"
-path:unique "$HOME/.krew/bin"
-path:unique "$HOME/dotfiles/bin"
-path:unique "$HOME/.local/bin"
-path:unique "/usr/local/opt/ruby/bin"
-path:unique "/usr/local/lib/ruby/gems/2.6.0/bin"
-path:unique "$HOME/.cargo/bin"
-path:unique "/usr/local/opt/man-db/libexec/bin"
-path:unique "/usr/local/opt/gnu-getopt/bin"
-path:unique "/usr/local/opt/file-formula/bin"
-#path:unique "/usr/local/opt/findutils/libexec/gnubin"
-path:unique "/usr/local/opt/file-formula/bin"
+#set -x PEARL_ROOT /Users/d/.local/share/pearl
+#source /Users/d/.local/share/pearl/boot/fish/pearl.fish
+function addpath
+    set p $argv[1]
+    test -d $p
+    and path:unique $p
+end
+
+eval (brew shellenv)
+
+addpath "/home/linuxbrew/.linuxbrew/bin"
+addpath "$HOME/.linuxbrew/bin"
+addpath "$HOME/.porter"
+addpath "/usr/local/bin"
+addpath "/usr/local/sbin"
+addpath "$HOME/go/bin"
+addpath "$HOME/.krew/bin"
+addpath "$HOME/dotfiles/bin"
+addpath "$HOME/.local/bin"
+addpath "/usr/local/opt/ruby/bin"
+addpath "/usr/local/lib/ruby/gems/2.6.0/bin"
+addpath "$HOME/.cargo/bin"
+addpath "/usr/local/opt/man-db/libexec/bin"
+addpath "/usr/local/opt/gnu-getopt/bin"
+addpath "/usr/local/opt/file-formula/bin"
+#addpath "/usr/local/opt/findutils/libexec/gnubin"
+addpath "/usr/local/opt/file-formula/bin"
+set -q PEARL_HOME
+and addpath "$PEARL_HOME/bin"
+path:before "$HOME/bin"
+
+__fs
+
 #should be last
 path:before "$HOME/bin"
 path:make_unique
@@ -38,7 +56,7 @@ if status --is-interactive
     set -g fish_color_separator 999
     set -g fish_pager_color_completion --bold
     set -g fish_pager_color_description yellow
-    set -g fish_pager_color_prefix red
+    set -g fish_pager_color_prefix red --bold --background=white
     set -g fish_pager_color_progress brown
 
 
@@ -50,13 +68,15 @@ if status --is-interactive
         contains "$argv[1]" $fish_user_paths || set -pU fish_user_paths "$argv[1]"
     end
     function setpcg
-        contains "$argv[1]" $fish_complete_path || set -pg fish_complete_path "$argv[1]"
+        contains "$argv[1]" $fish_complete_path
+        or set -pg fish_complete_path "$argv[1]"
     end
 
 
     setpcg "/usr/local/Homebrew/completions/fish"
 
     set -x LC_ALL en_US.UTF-8
+    set -x LANG en_US.UTF-8
     set -x LC_CTYPE en_US.UTF-8
     set -x EDITOR micro
     set -x VISUAL micro
@@ -79,8 +99,8 @@ end
 [ -f ~/.aliases ]
 and cat ~/.aliases | sed -e 's/=/ /' -e 's/alias/alias/' | eval
 if status --is-interactive
-    set -x PEARL_ROOT $HOME/.local/share/pearl
-    source $HOME/.local/share/pearl/boot/fish/pearl.fish
+    #    set -x PEARL_ROOT $HOME/.local/share/pearl
+    #    source $HOME/.local/share/pearl/boot/fish/pearl.fish
 
     [ -f /usr/local/share/autojump/autojump.fish ]
     and . /usr/local/share/autojump/autojump.fish
@@ -132,42 +152,5 @@ if status --is-interactive
 
     # brew command command-not-found-init > /dev/null 2>&1; and . (brew command-not-found-init)
     # function fish_user_key_bindings
-    # #   bind \c] peco_select_ghq      # Ctrl-]
-    # #   bind \cr peco_select_history  # Ctrl-r
-    #     # bind \cj peco_select_z        # Ctrl-j
-    # #   bind \cff peco_select_file     # Ctrl-f
-    # #   bind \cnn peco_select_k8s_context     # Ctrl-f
-    # #   bind \cn peco_select_k8s_namespace     # Ctrl-f
-    # end
-
-    # tabtab source for serverless package
-    # uninstall by removing these lines or running `tabtab uninstall serverless`
-    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]
-    and source $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
-    # tabtab source for sls package
-    # uninstall by removing these lines or running `tabtab uninstall sls`
-    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]
-    and source $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
-    # tabtab source for slss package
-    # uninstall by removing these lines or running `tabtab uninstall slss`
-    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]
-    and source $XDG_CONFIG_HOME/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
-    # tabtab source for yarn package
-    # uninstall by removing these lines or running `tabtab uninstall yarn`
-    [ -f $XDG_CONFIG_HOME/yarn/global/node_modules/tabtab/.completions/yarn.fish ]
-    and source $XDG_CONFIG_HOME/yarn/global/node_modules/tabtab/.completions/yarn.fish
-    # # begin -h completion
-    # -h --completion-fish | source
-    # # end -h completion
-
-    # # begin --help completion
-    # --help --completion-fish | source
-    # # end --help completion
-    __fs
-
-
-    #should be last
-    path:before "$HOME/bin"
-    path:make_unique
-
+    # #   bind 
 end
