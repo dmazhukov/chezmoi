@@ -14,7 +14,7 @@ alias tre='tree -ChalF -L 2'
 alias grid='l --recurse -L 2 -l --grid'
 alias publicip='curl ipinfo.io/ip'
 
-alias s='set -S'
+#alias s='set -S'
 alias dif='git diff'
 alias gld='git log --pretty=format:%cd --date=short | uniq -c'
 alias gac='git add . && git commit -m'
@@ -33,4 +33,7 @@ alias kns='kubens'
 alias ktl='kubetail'
 alias ksys='k get --namespace kube-system'
 alias kall='k get --all-namespaces'
-alias ssh='assh wrapper ssh'
+#alias ssh='assh wrapper ssh'
+alias xi="xclip -i"
+alias xip="xclip -i|pbcopy"
+alias xo="xclip -o"
