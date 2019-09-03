@@ -1,15 +1,15 @@
 #set -x PEARL_ROOT /Users/d/.local/share/pearl
 #source /Users/d/.local/share/pearl/boot/fish/pearl.fish
 function addpath
-    set p $argv[1]
+    set -l p $argv[1]
     test -d $p
     and path:unique $p
 end
 
-eval (brew shellenv)
-
+# PATHS
 addpath "/home/linuxbrew/.linuxbrew/bin"
 addpath "$HOME/.linuxbrew/bin"
+eval (brew shellenv)
 addpath "$HOME/.porter"
 addpath "/usr/local/bin"
 addpath "/usr/local/sbin"
@@ -23,17 +23,39 @@ addpath "$HOME/.cargo/bin"
 addpath "/usr/local/opt/man-db/libexec/bin"
 addpath "/usr/local/opt/gnu-getopt/bin"
 addpath "/usr/local/opt/file-formula/bin"
+addpath "/opt/local/bin"
 #addpath "/usr/local/opt/findutils/libexec/gnubin"
-addpath "/usr/local/opt/file-formula/bin"
 set -q PEARL_HOME
 and addpath "$PEARL_HOME/bin"
-path:before "$HOME/bin"
+#path:before "$HOME/bin"
 
-__fs
+#__fs
 
 #should be last
 path:before "$HOME/bin"
 path:make_unique
+
+# VARIABLES
+set -x LC_ALL en_US.UTF-8
+set -x LANG en_US.UTF-8
+set -x LC_CTYPE en_US.UTF-8
+set -x EDITOR micro
+set -x VISUAL micro
+set -x BROWSER elinks
+
+set -x TERM xterm-256color
+set -x CLI_COLOR 1
+set -x CLICOLOR 1
+
+#   set -Ux GOROOT /usr/local/opt/go/libexec
+set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
+
+set -x G_FILENAME_ENCODING @locale,UTF-8
+set -x MANDIR $HOME/.local/share/man
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_DATA_HOME $HOME/.local/share
 
 if status --is-interactive
     set -g fish_color_cwd 87af5f
@@ -59,6 +81,13 @@ if status --is-interactive
     set -g fish_pager_color_prefix red --bold --background=white
     set -g fish_pager_color_progress brown
 
+    set -x LESS_TERMCAP_me (printf '\e[0m')
+    set -x LESS_TERMCAP_se (printf '\e[0m')
+    set -x LESS_TERMCAP_ue (printf '\e[0m')
+    set -x LESS_TERMCAP_mb (printf '\e[1;32m')
+    set -x LESS_TERMCAP_md (printf '\e[1;34m')
+    set -x LESS_TERMCAP_us (printf '\e[1;32m')
+    set -x LESS_TERMCAP_so (printf '\e[1;44;1m')
 
 
     function setpfg
@@ -75,25 +104,6 @@ if status --is-interactive
 
     setpcg "/usr/local/Homebrew/completions/fish"
 
-    set -x LC_ALL en_US.UTF-8
-    set -x LANG en_US.UTF-8
-    set -x LC_CTYPE en_US.UTF-8
-    set -x EDITOR micro
-    set -x VISUAL micro
-
-    set -x TERM xterm-256color
-    set -x CLI_COLOR 1
-    set -x CLICOLOR 1
-
-    set -Ux GOROOT /usr/local/opt/go/libexec
-    set -Ux GOPATH $HOME/go
-    set -Ux GOBIN $GOPATH/bin
-
-    set -x G_FILENAME_ENCODING @locale,UTF-8
-    set -x MANDIR $HOME/.local/share/man
-    set -x XDG_CONFIG_HOME $HOME/.config
-    set -x XDG_CACHE_HOME $HOME/.cache
-    set -x XDG_DATA_HOME $HOME/.local/share
     #. ~/.servers
 end
 [ -f ~/.aliases ]
@@ -153,4 +163,17 @@ if status --is-interactive
     # brew command command-not-found-init > /dev/null 2>&1; and . (brew command-not-found-init)
     # function fish_user_key_bindings
     # #   bind 
+
+    # tabtab source for serverless package
+    # uninstall by removing these lines or running `tabtab uninstall serverless`
+    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]
+    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
+    # tabtab source for sls package
+    # uninstall by removing these lines or running `tabtab uninstall sls`
+    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]
+    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish
+    # tabtab source for slss package
+    # uninstall by removing these lines or running `tabtab uninstall slss`
+    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish ]
+    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish
 end

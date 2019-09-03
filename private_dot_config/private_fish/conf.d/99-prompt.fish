@@ -4,6 +4,6 @@ function fish_prompt -d 'powerline-go based prompt'
 end
 
 function fish_right_prompt --description 'powerline-go based prompt(right side)'
-    powerline-go -condensed -theme default -shell bare -colorize-hostname -modules exit -modules-right kube,docker,aws,time -max-width 30 -shorten-eks-names -shorten-gke-names
+    powerline-go -condensed -theme default -shell bare -colorize-hostname -modules exit -modules-right kube,docker,aws,venv,vgo,time -max-width 30 -shorten-eks-names -shorten-gke-names
 end
 

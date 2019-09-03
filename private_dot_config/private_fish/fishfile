@@ -3,13 +3,8 @@ fisherman/fzf
 fisherman/getopts
 fisherman/gitignore
 fishpkg/fish-humanize-duration
-fisherman/pyenv
-fishpkg/fish-spin
 fisherman/z
-yyuu/pyenv
-dann1/fish-tools
 halostatue/fish-utils
-decors/fish-lscolors
 rcorrear/plugin-kubectl
 misterch0c/fishextract
 rstacruz/fish-autols
