@@ -1,0 +1,10 @@
+complete -c pkg -s h -l help -d 'output usage information'
+complete -c pkg -n __fish_no_arguments -s v -l version -d 'output pkg version'
+complete -c pkg -s t -l targets -d 'comma-separated list of targets (see examples)'
+complete -c pkg -s c -l config -d 'package.json or any json file with top-level config'
+complete -c pkg -l options -d 'bake v8 options into executable to run with them on'
+complete -c pkg -s o -l output -d 'output file name or template for several files'
+complete -c pkg -l out-path -d 'path to save output one or more executables'
+complete -c pkg -s d -l debug -d 'show more information during packaging process [off]'
+complete -c pkg -s b -l build -d don\'t\ download\ prebuilt\ base\ binaries,\ build\ them
+complete -c pkg -l public -d 'speed up and disclose the sources of top-level project'

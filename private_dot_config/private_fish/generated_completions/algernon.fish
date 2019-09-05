@@ -1,0 +1,28 @@
+complete -c algernon -s h -l help -d 'This help text'
+complete -c algernon -n __fish_no_arguments -s v -l version -d 'Application name and version'
+complete -c algernon -s e -l dev -d 'Development mode: Enables Debug mode, uses'
+complete -c algernon -s p -l prod -d 'Serve HTTP/2+HTTPS on port 443. Serve regular'
+complete -c algernon -s a -l autorefresh -d 'Enable event server and auto-refresh feature.'
+complete -c algernon -l nocache -d 'Another way to disable the caching.'
+complete -c algernon -l noheaders -d Don\'t\ use\ the\ security-related\ HTTP\ headers.
+complete -c algernon -l stricter -d 'Stricter HTTP headers (same origin policy).'
+complete -c algernon -s n -l nobanner -d Don\'t\ display\ a\ colorful\ banner\ at\ start.
+complete -c algernon -l ctrld -d 'Press ctrl-d twice to exit the REPL.'
+complete -c algernon -l rawcache -d 'Disable cache compression.'
+complete -c algernon -s d -l debug -d 'Enable debug mode (show errors in the browser).'
+complete -c algernon -s b -l bolt -d 'Use "/tmp/algernon.db" for the Bolt database.'
+complete -c algernon -s t -l httponly -d 'Serve regular HTTP.'
+complete -c algernon -l http2only -d 'Serve HTTP/2, without HTTPS.'
+complete -c algernon -l clear -d 'Clear the default URI prefixes that are used'
+complete -c algernon -s V -l verbose -d 'Slightly more verbose logging.'
+complete -c algernon -l nolimit -d 'Disable rate limiting.'
+complete -c algernon -l nodb -d 'No database backend. (same as --boltdb=/dev/null).'
+complete -c algernon -s l -l lua -d Don\'t\ serve\ anything,\ just\ present\ the\ Lua\ REPL.
+complete -c algernon -s s -l server -d 'Server mode (disable debug + interactive mode).'
+complete -c algernon -s q -l quiet -d Don\'t\ output\ anything\ to\ stdout\ or\ stderr.
+complete -c algernon -s z -l quit -d 'Quit after the first request has been served.'
+complete -c algernon -s m -d 'View the given Markdown file in the browser.'
+complete -c algernon -s c -l statcache -d 'Speed up responses by caching os.Stat.'
+complete -c algernon -s x -l simple -d 'Serve as regular HTTP, enable server mode and'
+complete -c algernon -l domain -d 'Serve files from the subdirectory with the same'
+complete -c algernon -s u -d 'Serve over QUIC.'

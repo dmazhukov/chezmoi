@@ -1,0 +1,36 @@
+           /* "password" at the start of a line is made red (case insensitive). */
+           HIGHLIGHT {(?i)^password} {red} {1000}
+
+           /* On its own, makes "Bubba" or "bubba" green, but since its priority
+              is not specified (default 1000), and the next rule matches the same
+              string with a better (lower) priority, this rule is superseded by
+              the rule with the better priority that matches the same string.
+              However, "bubba" won’t match the better‐priority rule, and thus,
+              will be highlighted green according to this rule. */
+           HIGHLIGHT {(B|b)ubba} {green}
+
+	
+           
+/* brew */
+           HIGHLIGHT {(?i)installing (\w)*} {green} {800}
+
+/* nq */         
+           HIGHLIGHT {exec nq ((\-\w)*)*} {dim silver} {900}
+           HIGHLIGHT {,\w*.} {dim silver} {900}
+                      
+ /* generic */
+                      HIGHLIGHT {==>} {bold yellow} {1500}
+/* URL */
+HIGHLIGHT {https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)} {blue}
+/* IPv4 */
+HIGHLIGHT {(?i)(?<=[\W]|^)(?<!\.)(?:(?P<ip>25[0-5]|(?:2[0-4]|[0-1]?\d)?\d)\.){3}(?P>ip)(?:/\d*)?(?!\.)(?=[\W]|$)} {cyan} {1000}
+ /* MAC */
+ HIGHLIGHT {(?i)(?<=[\W]|^)(?<!:)(?:(?:(?P<h>[\da-f])(?P>h)?:){5}(?P>h){1,2}|(?:(?P>h){4}\.){2}(?P>h){4})(?!:)(?=[\W]|$)} {<bbd>} {1000}
+ /* Password or password */
+ HIGHLIGHT {(?i)password} {red} {1000}
+/* Date in (YYYY-MM-DD|MMM (YYYY|DD)|DD MMM (YYYY)?)[\WT_]hh:mm:ss.SSSSSS format (date, sec, msec, and nsec optional) */
+HIGHLIGHT {(?i)(?<=[\W]|^)(?:(?:\d{2,4}\-(?:(?:0)?[1-9]|1[0-2])\-(?:3[0-1]|(?:[1-2]\d)|(?:0)?[1-9])|(?P<MMM>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\s(?:\d{4}|\s\d|(?:3[0-1]|(?:[0-2]\d)))|(?:\d|(?:3[0-1]|(?:[0-2]\d)))\s(?P>MMM)(?:\s\d{4})?)[\WT_])?(?:(?:2[0-3])|[0-1]\d):[0-5]\d(?::[0-5]\d)?(?:(?:\.|,)\d{3,6})?(?=[\W]|$)} {<DBA>} {1000}
+
+                   /* Print the list of highlight rules on program startup.
+              Useful for viewing the order of highlight rules. */
+           /*HIGHLIGHT*/

@@ -1,0 +1,7 @@
+complete -c shellharden -l suggest -d 'Output a colored diff suggesting changes.'
+complete -c shellharden -l syntax -d 'Output syntax highlighting with ANSI colors.'
+complete -c shellharden -l syntax-suggest -d 'Diff with syntax highlighting (default mode).'
+complete -c shellharden -l transform -d 'Output suggested changes.'
+complete -c shellharden -l check -d 'No output; exit with 2 if changes are suggested.'
+complete -c shellharden -l replace -d 'Replace file contents with suggested changes.'
+complete -c shellharden -n __fish_no_arguments -l version -d 'Show version.'

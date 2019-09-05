@@ -1,0 +1,10 @@
+complete -c gcloud -l billing-project -d 'are specified, --billing-project takes precedence.'
+complete -f -c gcloud -n __fish_use_subcommand -a information -d 'on how to use configurations, run: gcloud topic'
+complete -f -c gcloud -n __fish_use_subcommand -a replaced -d 'by its constituent flags. See $ gcloud topic flags-file for'
+complete -f -c gcloud -n __fish_use_subcommand -a more -d information.
+complete -f -c gcloud -n __fish_use_subcommand -a is -d 'required, defaults will be used, or an error will be raised.'
+complete -f -c gcloud -n __fish_use_subcommand -a Overrides -d 'the default core/disable_prompts property value for this'
+complete -f -c gcloud -n __fish_use_subcommand -a equivalent -d 'to setting the environment variable'
+complete -f -c gcloud -n __fish_use_subcommand -a CLOUDSDK_CORE_DISABLE_PROMPTS -d 'to 1.'
+complete -f -c gcloud -n __fish_use_subcommand -a supported -d 'standard verbosity levels: debug, info, warning, error,'
+complete -f -c gcloud -n __fish_use_subcommand -a critical -d 'none. Overrides the default core/verbosity property value for'
