@@ -1,0 +1,19 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh|sh
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+{{ else if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+{{ end -}}
+
+brew install go
+brew install exa
+brew install lsd
+brew install fish
+brew install highlight
+brew install micro
+brew install ripgrep
+go get -u -v github.com/gokcehan/lf
+go get -u -v github.com/justjanne/powerline-go
