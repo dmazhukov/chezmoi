@@ -1,0 +1,10 @@
+complete -c goreleaser -s h -l help -d 'Show context-sensitive help (also try'
+complete -c goreleaser -l help-long -d 'and --help-man).'
+complete -c goreleaser -l debug -d 'Enable debug mode'
+complete -c goreleaser -n __fish_no_arguments -s v -l version -d 'Show application version.'
+complete -f -c goreleaser -n __fish_use_subcommand -a help -d '[<command>...]'
+complete -c goreleaser -n '__fish_seen_subcommand_from help' -s h -l help -d 'Show context-sensitive help (also try'
+complete -c goreleaser -n '__fish_seen_subcommand_from help' -l help-long -d 'and --help-man).'
+complete -c goreleaser -n '__fish_seen_subcommand_from help' -l debug -d 'Enable debug mode'
+complete -c goreleaser -n __fish_no_arguments -s v -l version -d 'Show application version.'
+complete -f -c goreleaser -n __fish_use_subcommand -a Show -d help.

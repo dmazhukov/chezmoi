@@ -1,1 +1,1 @@
-complete -c cht.sh -xa '(curl -s cheat.sh/:list)'
+complete -c cht.sh -xa (cht.sh /:list)
