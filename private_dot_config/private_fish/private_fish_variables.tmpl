@@ -2,11 +2,9 @@
 # VERSION: 3.0
 SETUVAR AWS_REGION:eu\x2dnorth\x2d1
 SETUVAR --export BAT_PAGER:less
-SETUVAR --export BRIGADE_NAMESPACE:banzaicloud
 SETUVAR --export BROWSER:elinks
 SETUVAR --export CLI_COLOR:1
 SETUVAR --export CPPFLAGS:\x2dI/usr/local/opt/gettext/include
-SETUVAR --export DOCKER_HOST:ssh\x3a//sunshine
 SETUVAR --export EDITOR:micro
 SETUVAR --export FZF_CD_COMMAND:fd\x20\x2d\x2dtype\x20d
 SETUVAR --export FZF_CD_WITH_HIDDEN_COMMAND:fd\x20\x2d\x2dtype\x20d\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2d\x2dexclude\x20\x22\x2egit\x22
@@ -25,8 +23,8 @@ SETUVAR GENCOMP_COBRA_TARGETS:pet\x1ecorgi\x1edive\x1ecobra\x1eglooctl
 SETUVAR --export GITHUB_USER:dmazhukov
 SETUVAR --export GIT_PAGER:less
 SETUVAR --export GO111MODULE:on
-SETUVAR --export GOBIN:/Users/d/go/bin
-SETUVAR --export --path GOPATH:/Users/d/go
+SETUVAR --export GOBIN:{{ .chezmoi.homedir }}/go/bin
+SETUVAR --export --path GOPATH:{{ .chezmoi.homedir }}/go
 SETUVAR --export HIGHLIGHT_OPTIONS:\x2dOtruecolor\x1e\x2d\x2dforce\x3dslim\x1e\x2ds\x1ebase16/dracula
 SETUVAR HLSTYLE:base16/dracula
 SETUVAR --export HOMEBREW_NO_AUTO_UPDATE:1
@@ -38,22 +36,19 @@ SETUVAR --export LESSTERM:xterm\x2d256color
 SETUVAR --export LESS_TERMCAP_zz:\x1b\x5b0m
 SETUVAR --export LV:\x2dc
 SETUVAR MICRO_TRUECOLOR:1
-SETUVAR --export NQDIR:/Users/d/\x2enq/
-SETUVAR --export N_PREFIX:\x24HOME/n
-SETUVAR --export OP_SESSION_my:gnYLwJIIWm7H_HBCNPwGLaCE7Z3ZEhr35xtNhK2ocVk
+SETUVAR --export NQDIR:{{ .chezmoi.homedir }}/\x2enq/
 SETUVAR --export PAGER:less
 SETUVAR --export PASSWORD_STORE_ENABLE_EXTENSIONS:true
 SETUVAR --export PISTOL_CHROMA_FORMATTER:terminal16m
 SETUVAR --export PISTOL_CHROMA_STYLE:native
 SETUVAR SKIM_DEFAULT_COMMAND:fd\x20\x2d\x2dtype\x20f\x20\x7c\x7c\x20git\x20ls\x2dtree\x20\x2dr\x20\x2d\x2dname\x2donly\x20HEAD\x20\x7c\x7c\x20rg\x20\x2d\x2dfiles\x20\x7c\x7c\x20find\x20\x2e
 SETUVAR --export SKIM_DEFAULT_OPTIONS:\x2d\x2dansi\x20\x2d\x2dtabstop\x3d2
-SETUVAR --export SSH_KEY:ssh\x2drsa\x20AAAAB3NzaC1yc2EAAAADAQABAAABAQCrMY2PNF3DZH62qTn8WrSsnG5L/N9fq81aGCYlOKOAGaemHLtAQbktYDKi7PGoGR4iatnoKjD43ob\x2bwnNqoJcPCkb7eO7uIMmrKPvXQXhWUrKObkAmiwZfTtiHKYppmwaUhztVT40gJJHTWGav5o45rmXcWlhcHS8Dt20qUHJ1zqgcLxdZQ0I/lv9G2OIwBOaP\x2bKBv0HqwYz61fsFa0fb7LefuWv4XFZKvrOSKkWFnO//B5EpCL4Uj7h9rS62q20NauuQ\x2b7xfQIAJN\x2bAUGXf04Jb0zG/hW9neuIq9xLtNjCHnqoL\x2bFHS6Pw0GKqxFsJhDzOceB5CELQfL\x2bpd15qQG5\x20dmitry\x40MacBook\x2dPro\x2dDmitry\x2elocal
+SETUVAR --export SSH_KEY:ssh\x2drsa\x20AAAAB3NzaC1yc2EAAAADAQABAAABAQCrMY2PNF3DZH62qTn8WrSsnG5L/N9fq81aGCYlOKOAGaemHLtAQbktYDKi7PGoGR4iatnoKjD43ob\x2bwnNqoJcPCkb7eO7uIMmrKPvXQXhWUrKObkAmiwZfTtiHKYppmwaUhztVT40gJJHTWGav5o45rmXcWlhcHS8Dt20qUHJ1zqgcLxdZQ0I/lv9G2OIwBOaP\x2bKBv0HqwYz61fsFa0fb7LefuWv4XFZKvrOSKkWFnO//B5EpCL4Uj7h9rS62q20NauuQ\x2b7xfQIAJN\x2bAUGXf04Jb0zG/hW9neuIq9xLtNjCHnqoL\x2bFHS6Pw0GKqxFsJhDzOceB5CELQfL\x2bpd15qQG5\x20d\x40moonshine
 SETUVAR --export TERM:xterm\x2d256color
-SETUVAR THEME_EDEN_PROMPT_CHAR:\u00bb
-SETUVAR --export --path TODO_DB_PATH:/Users/d/Dropbox/todo\x2ejson
+SETUVAR --export --path TODO_DB_PATH:{{ .chezmoi.homedir }}/Dropbox/todo\x2ejson
 SETUVAR --export VISUAL:micro
-SETUVAR --export VIVID_DATABASE:\x24HOME/\x2econfig/vivid/filetypes\x2eyml
-SETUVAR --export XDG_CONFIG_HOME:/Users/d/\x2econfig
+SETUVAR --export VIVID_DATABASE:{{ .chezmoi.homedir }}/\x2econfig/vivid/filetypes\x2eyml
+SETUVAR --export XDG_CONFIG_HOME:{{ .chezmoi.homedir }}/\x2econfig
 SETUVAR __brew_prefix:/usr/local
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __fish_init_2_39_8:\x1d
@@ -70,6 +65,7 @@ SETUVAR _fish_abbr_bc:brew\x20cask
 SETUVAR _fish_abbr_bci:brew\x20cask\x20install
 SETUVAR _fish_abbr_bih:brew\x20install\x20\x2d\x2dHEAD
 SETUVAR _fish_abbr_bii:brew\x20install
+SETUVAR _fish_abbr_bi:brew\x20info
 SETUVAR _fish_abbr_bsr:brew\x20search\x20\x2d\x2ddesc
 SETUVAR _fish_abbr_bu:brew\x20update
 SETUVAR _fish_abbr_c:cht\x2esh
@@ -169,13 +165,6 @@ SETUVAR _fish_abbr_gup:git\x20pull\x20\x2d\x2drebase
 SETUVAR _fish_abbr_gwch:git\x20whatchanged\x20\x2dp\x20\x2d\x2dabbrev\x2dcommit\x20\x2d\x2dpretty\x3dmedium
 SETUVAR _fish_abbr_ta:type\x20\x2da
 SETUVAR _fish_abbr_wa:which\x20\x2da
-SETUVAR budspencer_colors:000000\x1e083743\x1e445659\x1efdf6e3\x1eb58900\x1ecb4b16\x1edc121f\x1eaf005f\x1e6c71c4\x1e268bd2\x1e2aa198\x1e859900
-SETUVAR budspencer_cursors:\x5c033\x5d12\x3b\x23268bd2\x5c007\x1e\x5c033\x5d12\x3b\x23b58900\x5c007\x1e\x5c033\x5d12\x3b\x23af005f\x5c007\x1e\x5c033\x5d12\x3b\x236c71c4\x5c007
-SETUVAR budspencer_day:000000\x1e333333\x1e666666\x1effffff\x1effff00\x1eff6600\x1eff0000\x1eff0033\x1e3300ff\x1e00aaff\x1e00ffff\x1e00ff00
-SETUVAR budspencer_night:000000\x1e083743\x1e445659\x1efdf6e3\x1eb58900\x1ecb4b16\x1edc121f\x1eaf005f\x1e6c71c4\x1e268bd2\x1e2aa198\x1e859900
-SETUVAR budspencer_nocmdhist:c\x1ed\x1ell\x1els\x1em\x1es
-SETUVAR budspencer_pwdstyle:short\x1elong\x1enone
-SETUVAR budspencer_sessions_active_pid:\x1d
 SETUVAR chain_links:chain\x2elinks\x2eroot\x1echain\x2elinks\x2ejobs\x1echain\x2elinks\x2epwd\x1echain\x2elinks\x2evcs_branch\x1echain\x2elinks\x2evcs_dirty\x1echain\x2elinks\x2evcs_stashed
 SETUVAR fish_color_autosuggestion:BD93F9
 SETUVAR fish_color_cancel:\x2dr
@@ -209,5 +198,3 @@ SETUVAR fish_prompt_pwd_dir_length:6
 SETUVAR fisher_active_prompt:fish
 SETUVAR fisher_dependency_count:spin\x1ehumanize\x2dduration\x1epyenv\x1ez\x1egitignore\x1edone\x1efzf\x1egetopts\x1efish
 SETUVAR grc_plugin_execs:cat\x1ecvs\x1edf\x1ediff\x1edig\x1egcc\x1eg\x2b\x2b\x1eifconfig\x1emake\x1emount\x1emtr\x1enetstat\x1eping\x1eps\x1etail\x1etraceroute\x1ewdiff\x1eblkid\x1edu\x1ednf\x1edocker\x1edocker\x2dmachine\x1eid\x1eip\x1eiostat\x1elast\x1elsattr\x1elsblk\x1elspci\x1elsmod\x1elsof\x1egetfacl\x1egetsebool\x1eulimit\x1euptime\x1enmap\x1efdisk\x1efindmnt\x1efree\x1esemanage\x1esar\x1ess\x1esysctl\x1esystemctl\x1estat\x1eshowmount\x1etcpdump\x1etune2fs\x1evmstat\x1ew\x1ewho\x1edf
-SETUVAR langs:snobol\x1ecfengine3\x1egas\x1ebash\x1etcl\x1ebase\x20makefile\x1eqbasic\x1escala
-SETUVAR styles:\x1eabap\x1ealgol\x1ealgol_nu\x1earduino\x1eautumn\x1eborland\x1ebw\x1ecolorful\x1edracula\x1eemacs\x1efriendly\x1efruity\x1egithub\x1eigor\x1elovelace\x1emanni\x1emonokai\x1emonokailight\x1emurphy\x1enative\x1eparaiso\x2ddark\x1eparaiso\x2dlight\x1epastie\x1eperldoc\x1epygments\x1erainbow_dash\x1errt\x1esolarized\x2ddark\x1esolarized\x2ddark256\x1esolarized\x2dlight\x1eswapoff\x1etango\x1etrac\x1evim\x1evs\x1excode\x1e

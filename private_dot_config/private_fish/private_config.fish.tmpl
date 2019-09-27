@@ -1,5 +1,5 @@
-#set -x PEARL_ROOT $HOME/.local/share/pearl
-#source $HOME/.local/share/pearl/boot/fish/pearl.fish
+#set -x PEARL_ROOT {{ .chezmoi.homedir }}/.local/share/pearl
+#source {{ .chezmoi.homedir }}/.local/share/pearl/boot/fish/pearl.fish
 function addpath
     set -l p $argv[1]
     test -d $p
@@ -11,28 +11,28 @@ addpath "/opt/local/bin"
 addpath "/home/linuxbrew/.linuxbrew/bin"
 addpath "~/.linuxbrew/bin"
 eval (brew shellenv)
-addpath "$HOME/.porter"
+addpath "{{ .chezmoi.homedir }}/.porter"
 addpath "/usr/local/bin"
 addpath "/usr/local/sbin"
-addpath "$HOME/go/bin"
-addpath "$HOME/.krew/bin"
-addpath "$HOME/dotfiles/bin"
-addpath "$HOME/.local/bin"
+addpath "{{ .chezmoi.homedir }}/go/bin"
+addpath "{{ .chezmoi.homedir }}/.krew/bin"
+addpath "{{ .chezmoi.homedir }}/dotfiles/bin"
+addpath "{{ .chezmoi.homedir }}/.local/bin"
 addpath "/usr/local/opt/ruby/bin"
 addpath "/usr/local/lib/ruby/gems/2.6.0/bin"
-addpath "$HOME/.cargo/bin"
+addpath "{{ .chezmoi.homedir }}/.cargo/bin"
 addpath "/usr/local/opt/man-db/libexec/bin"
 addpath "/usr/local/opt/gnu-getopt/bin"
 addpath "/usr/local/opt/file-formula/bin"
 #addpath "/usr/local/opt/findutils/libexec/gnubin"
 set -q PEARL_HOME
 and addpath "$PEARL_HOME/bin"
-#path:before "$HOME/bin"
+#path:before "{{ .chezmoi.homedir }}/bin"
 
 #__fs
 
 #should be last
-path:before "$HOME/bin"
+path:before "{{ .chezmoi.homedir }}/bin"
 path:make_unique
 
 # VARIABLES
@@ -48,16 +48,16 @@ set -x CLI_COLOR 1
 set -x CLICOLOR 1
 
 #   set -Ux GOROOT /usr/local/opt/go/libexec
-set -x GOPATH $HOME/go
+set -x GOPATH {{ .chezmoi.homedir }}/go
 set -x GOBIN $GOPATH/bin
 
 set -x G_FILENAME_ENCODING @locale,UTF-8
-set -x MANDIR $HOME/.local/share/man
-set -x XDG_CONFIG_HOME $HOME/.config
-set -x XDG_CACHE_HOME $HOME/.cache
-set -x XDG_DATA_HOME $HOME/.local/share
+set -x MANDIR {{ .chezmoi.homedir }}/.local/share/man
+set -x XDG_CONFIG_HOME {{ .chezmoi.homedir }}/.config
+set -x XDG_CACHE_HOME {{ .chezmoi.homedir }}/.cache
+set -x XDG_DATA_HOME {{ .chezmoi.homedir }}/.local/share
 
-set -x GH_BASE_DIR "$HOME/src"
+set -x GH_BASE_DIR "{{ .chezmoi.homedir }}/src"
 
 if status --is-interactive
     set -g fish_color_cwd 87af5f
@@ -111,8 +111,8 @@ end
 [ -f ~/.aliases ]
 and cat ~/.aliases | sed -e 's/=/ /' -e 's/alias/alias/' | eval
 if status --is-interactive
-    #    set -x PEARL_ROOT $HOME/.local/share/pearl
-    #    source $HOME/.local/share/pearl/boot/fish/pearl.fish
+    #    set -x PEARL_ROOT {{ .chezmoi.homedir }}/.local/share/pearl
+    #    source {{ .chezmoi.homedir }}/.local/share/pearl/boot/fish/pearl.fish
 
     [ -f /usr/local/share/autojump/autojump.fish ]
     and . /usr/local/share/autojump/autojump.fish
@@ -168,16 +168,16 @@ if status --is-interactive
 
     # tabtab source for serverless package
     # uninstall by removing these lines or running `tabtab uninstall serverless`
-    [ -f $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]
-    and . $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
+    [ -f {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]
+    and . {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
     # tabtab source for sls package
     # uninstall by removing these lines or running `tabtab uninstall sls`
-    [ -f $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]
-    and . $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish
+    [ -f {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]
+    and . {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish
     # tabtab source for slss package
     # uninstall by removing these lines or running `tabtab uninstall slss`
-    [ -f $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish ]
-    and . $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish
+    [ -f {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish ]
+    and . {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish
 
     eval (direnv hook fish)
 end
