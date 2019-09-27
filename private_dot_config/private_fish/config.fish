@@ -1,5 +1,5 @@
-#set -x PEARL_ROOT /Users/d/.local/share/pearl
-#source /Users/d/.local/share/pearl/boot/fish/pearl.fish
+#set -x PEARL_ROOT $HOME/.local/share/pearl
+#source $HOME/.local/share/pearl/boot/fish/pearl.fish
 function addpath
     set -l p $argv[1]
     test -d $p
@@ -7,6 +7,7 @@ function addpath
 end
 
 # PATHS
+addpath "/opt/local/bin"
 addpath "/home/linuxbrew/.linuxbrew/bin"
 addpath "$HOME/.linuxbrew/bin"
 eval (brew shellenv)
@@ -23,7 +24,6 @@ addpath "$HOME/.cargo/bin"
 addpath "/usr/local/opt/man-db/libexec/bin"
 addpath "/usr/local/opt/gnu-getopt/bin"
 addpath "/usr/local/opt/file-formula/bin"
-addpath "/opt/local/bin"
 #addpath "/usr/local/opt/findutils/libexec/gnubin"
 set -q PEARL_HOME
 and addpath "$PEARL_HOME/bin"
@@ -56,6 +56,8 @@ set -x MANDIR $HOME/.local/share/man
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
+
+set -x GH_BASE_DIR "$HOME/src"
 
 if status --is-interactive
     set -g fish_color_cwd 87af5f
@@ -166,14 +168,16 @@ if status --is-interactive
 
     # tabtab source for serverless package
     # uninstall by removing these lines or running `tabtab uninstall serverless`
-    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]
-    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
+    [ -f $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]
+    and . $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
     # tabtab source for sls package
     # uninstall by removing these lines or running `tabtab uninstall sls`
-    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]
-    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish
+    [ -f $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]
+    and . $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish
     # tabtab source for slss package
     # uninstall by removing these lines or running `tabtab uninstall slss`
-    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish ]
-    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish
+    [ -f $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish ]
+    and . $HOME/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish
+
+    eval (direnv hook fish)
 end

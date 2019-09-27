@@ -50,7 +50,7 @@ SETUVAR --export SKIM_DEFAULT_OPTIONS:\x2d\x2dansi\x20\x2d\x2dtabstop\x3d2
 SETUVAR --export SSH_KEY:ssh\x2drsa\x20AAAAB3NzaC1yc2EAAAADAQABAAABAQCrMY2PNF3DZH62qTn8WrSsnG5L/N9fq81aGCYlOKOAGaemHLtAQbktYDKi7PGoGR4iatnoKjD43ob\x2bwnNqoJcPCkb7eO7uIMmrKPvXQXhWUrKObkAmiwZfTtiHKYppmwaUhztVT40gJJHTWGav5o45rmXcWlhcHS8Dt20qUHJ1zqgcLxdZQ0I/lv9G2OIwBOaP\x2bKBv0HqwYz61fsFa0fb7LefuWv4XFZKvrOSKkWFnO//B5EpCL4Uj7h9rS62q20NauuQ\x2b7xfQIAJN\x2bAUGXf04Jb0zG/hW9neuIq9xLtNjCHnqoL\x2bFHS6Pw0GKqxFsJhDzOceB5CELQfL\x2bpd15qQG5\x20dmitry\x40MacBook\x2dPro\x2dDmitry\x2elocal
 SETUVAR --export TERM:xterm\x2d256color
 SETUVAR THEME_EDEN_PROMPT_CHAR:\u00bb
-SETUVAR --export --path TODO_DB_PATH:\x24HOME/Dropbox/todo\x2ejson
+SETUVAR --export --path TODO_DB_PATH:/Users/d/Dropbox/todo\x2ejson
 SETUVAR --export VISUAL:micro
 SETUVAR --export VIVID_DATABASE:\x24HOME/\x2econfig/vivid/filetypes\x2eyml
 SETUVAR --export XDG_CONFIG_HOME:/Users/d/\x2econfig
