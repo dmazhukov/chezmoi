@@ -18,6 +18,7 @@ function mess -d 'Create a mess work path'
             ln -s $current $link
         end
 
+        mkdir -p (string join '/' $current $argv)
         cd (string join '/' $current $argv)
     end
 end

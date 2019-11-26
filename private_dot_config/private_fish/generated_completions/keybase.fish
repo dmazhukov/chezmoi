@@ -1,4 +1,6 @@
 complete -f -c keybase -n __fish_use_subcommand -a account -d 'Modify your account'
+complete -f -c keybase -n __fish_use_subcommand -a blocks -d 'Manage user and team blocks'
+complete -f -c keybase -n __fish_use_subcommand -a bot -d 'Manage bot accounts'
 complete -f -c keybase -n __fish_use_subcommand -a chat -d 'Chat securely with keybase users'
 complete -f -c keybase -n __fish_use_subcommand -a ctl -d 'Control the background keybase service'
 complete -f -c keybase -n __fish_use_subcommand -a currency -d 'Manage cryptocurrency addresses'
@@ -46,7 +48,7 @@ complete -c keybase -n '__fish_seen_subcommand_from login' -s s -l switch -d 'sw
 complete -c keybase -n '__fish_seen_subcommand_from login' -l paperkey -d 'DANGEROUS: automatically provision using this paper key'
 complete -c keybase -n '__fish_seen_subcommand_from login' -l devicename -d 'Device name used in automated provisioning'
 complete -f -c keybase -n __fish_use_subcommand -a logout -d 'Logout and remove session information'
-complete -c keybase -n '__fish_seen_subcommand_from logout' -s f -l force -d 'If there are any reasons not to logout right now, ignore them'
+complete -c keybase -n '__fish_seen_subcommand_from logout' -s f -l force -d 'If there are any reasons not to logout right now, ignore them (potentially dangerous)'
 complete -f -c keybase -n __fish_use_subcommand -a oneshot -d 'Establish a oneshot device, as in logging into keybase from a disposable docker'
 complete -c keybase -n '__fish_seen_subcommand_from oneshot' -l paperkey -d 'DANGEROUS: specify a paper key (or try the KEYBASE_PAPERKEY environment variable)'
 complete -c keybase -n '__fish_seen_subcommand_from oneshot' -s u -l username -d 'specify a username (or try the KEYBASE_USERNAME environment variable)'
@@ -58,7 +60,8 @@ complete -c keybase -n '__fish_seen_subcommand_from ping' -l gregor -d 'ping the
 complete -f -c keybase -n __fish_use_subcommand -a prove -d 'Generate a new proof'
 complete -c keybase -n '__fish_seen_subcommand_from prove' -s o -l output -d 'Output proof text to a file (rather than standard out).'
 complete -c keybase -n '__fish_seen_subcommand_from prove' -s f -l force -d Don\'t\ prompt.
-complete -c keybase -n '__fish_seen_subcommand_from prove' -s l -l list-services -d 'List all available services'
+complete -c keybase -n '__fish_seen_subcommand_from prove' -s l -l list-services -d 'List some available services'
+complete -c keybase -n '__fish_seen_subcommand_from prove' -s a -l all -d 'List the full gamut of available services'
 complete -f -c keybase -n __fish_use_subcommand -a rekey -d 'Rekey status and actions'
 complete -f -c keybase -n __fish_use_subcommand -a selfprovision -d 'Provision a new device if the current device is a clone.'
 complete -f -c keybase -n __fish_use_subcommand -a sign -d 'Sign a document'
@@ -93,4 +96,11 @@ complete -f -c keybase -n __fish_use_subcommand -a version -d 'Print out version
 complete -c keybase -n '__fish_seen_subcommand_from version' -s f -l format -d Alternate\ format\ for\ version\ output.\ Specify\ \'s\'\ for\ simple\ \(1.2.3\)\ or\ \'v\'\ for\ verbose.\ Default\ \(blank\)\ includes\ build\ number\ \(1.2.3-400\).
 complete -c keybase -n '__fish_seen_subcommand_from version' -s S -l no-service -d Don\'t\ report\ on\ the\ service\'s\ build\ information
 complete -f -c keybase -n __fish_use_subcommand -a wallet -d 'Send and receive Stellar XLM'
+complete -f -c keybase -n __fish_use_subcommand -a service -d 'start the Keybase service to power all other CLI options'
+complete -c keybase -n '__fish_seen_subcommand_from service' -l chdir -d 'Specify where to run as a daemon (via chdir)'
+complete -c keybase -n '__fish_seen_subcommand_from service' -l label -d 'Specifying a label can help identify services.'
+complete -c keybase -n '__fish_seen_subcommand_from service' -l auto-forked -d 'Specify if this binary was auto-forked from the client'
+complete -c keybase -n '__fish_seen_subcommand_from service' -l watchdog-forked -d 'Specify if this binary was started by the watchdog'
+complete -c keybase -n '__fish_seen_subcommand_from service' -s u -l oneshot-username -d 'In oneshot mode, startup with username'
+complete -c keybase -n '__fish_seen_subcommand_from service' -s p -l oneshot-paperkey -d 'In oneshot mode, startup with paperkey; DANGEROUS to pass paperkey as a parameter'
 complete -f -c keybase -n __fish_use_subcommand -a help -d 'Shows a list of commands or help for one command'

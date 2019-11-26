@@ -1,5 +1,5 @@
-#set -x PEARL_ROOT {{ .chezmoi.homedir }}/.local/share/pearl
-#source {{ .chezmoi.homedir }}/.local/share/pearl/boot/fish/pearl.fish
+#set -x PEARL_ROOT /Users/d/.local/share/pearl
+#source /Users/d/.local/share/pearl/boot/fish/pearl.fish
 function addpath
     set -l p $argv[1]
     test -d $p
@@ -11,28 +11,34 @@ addpath "/opt/local/bin"
 addpath "/home/linuxbrew/.linuxbrew/bin"
 addpath "~/.linuxbrew/bin"
 eval (brew shellenv)
-addpath "{{ .chezmoi.homedir }}/.porter"
+
+addpath "/Users/d/.porter"
 addpath "/usr/local/bin"
 addpath "/usr/local/sbin"
-addpath "{{ .chezmoi.homedir }}/go/bin"
-addpath "{{ .chezmoi.homedir }}/.krew/bin"
-addpath "{{ .chezmoi.homedir }}/dotfiles/bin"
-addpath "{{ .chezmoi.homedir }}/.local/bin"
+addpath "/Users/d/go/bin"
+addpath "/Users/d/.krew/bin"
+addpath "/Users/d/dotfiles/bin"
+addpath "/Users/d/.local/bin"
 addpath "/usr/local/opt/ruby/bin"
 addpath "/usr/local/lib/ruby/gems/2.6.0/bin"
-addpath "{{ .chezmoi.homedir }}/.cargo/bin"
+addpath "/Users/d/.cargo/bin"
+addpath "/Users/d/.deno/bin"
 addpath "/usr/local/opt/man-db/libexec/bin"
 addpath "/usr/local/opt/gnu-getopt/bin"
 addpath "/usr/local/opt/file-formula/bin"
 #addpath "/usr/local/opt/findutils/libexec/gnubin"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]
+    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'
+end
 set -q PEARL_HOME
 and addpath "$PEARL_HOME/bin"
-#path:before "{{ .chezmoi.homedir }}/bin"
+#path:before "/Users/d/bin"
 
 #__fs
 
 #should be last
-path:before "{{ .chezmoi.homedir }}/bin"
+path:before "/Users/d/bin"
 path:make_unique
 
 # VARIABLES
@@ -41,23 +47,24 @@ set -x LANG en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 set -x EDITOR micro
 set -x VISUAL micro
-set -x BROWSER elinks
+#set -x BROWSER elinks
 
 set -x TERM xterm-256color
 set -x CLI_COLOR 1
 set -x CLICOLOR 1
+set -x GPG_TTY "(TTY)"
 
 #   set -Ux GOROOT /usr/local/opt/go/libexec
-set -x GOPATH {{ .chezmoi.homedir }}/go
+set -x GOPATH /Users/d/go
 set -x GOBIN $GOPATH/bin
 
 set -x G_FILENAME_ENCODING @locale,UTF-8
-set -x MANDIR {{ .chezmoi.homedir }}/.local/share/man
-set -x XDG_CONFIG_HOME {{ .chezmoi.homedir }}/.config
-set -x XDG_CACHE_HOME {{ .chezmoi.homedir }}/.cache
-set -x XDG_DATA_HOME {{ .chezmoi.homedir }}/.local/share
+set -x MANDIR "$MANDIR /Users/d/.local/share/man"
+set -x XDG_CONFIG_HOME /Users/d/.config
+set -x XDG_CACHE_HOME /Users/d/.cache
+set -x XDG_DATA_HOME /Users/d/.local/share
 
-set -x GH_BASE_DIR "{{ .chezmoi.homedir }}/src"
+set -x GH_BASE_DIR "/Users/d/src"
 
 if status --is-interactive
     set -g fish_color_cwd 87af5f
@@ -111,8 +118,8 @@ end
 [ -f ~/.aliases ]
 and cat ~/.aliases | sed -e 's/=/ /' -e 's/alias/alias/' | eval
 if status --is-interactive
-    #    set -x PEARL_ROOT {{ .chezmoi.homedir }}/.local/share/pearl
-    #    source {{ .chezmoi.homedir }}/.local/share/pearl/boot/fish/pearl.fish
+    #    set -x PEARL_ROOT /Users/d/.local/share/pearl
+    #    source /Users/d/.local/share/pearl/boot/fish/pearl.fish
 
     [ -f /usr/local/share/autojump/autojump.fish ]
     and . /usr/local/share/autojump/autojump.fish
@@ -132,10 +139,6 @@ if status --is-interactive
 
 
 
-    # The next line updates PATH for the Google Cloud SDK.
-    if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]
-        source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'
-    end
     source (which env_parallel.fish)
 
     # Paths to your tackle
@@ -168,16 +171,30 @@ if status --is-interactive
 
     # tabtab source for serverless package
     # uninstall by removing these lines or running `tabtab uninstall serverless`
-    [ -f {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]
-    and . {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
+    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]
+    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
     # tabtab source for sls package
     # uninstall by removing these lines or running `tabtab uninstall sls`
-    [ -f {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]
-    and . {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish
+    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]
+    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish
     # tabtab source for slss package
     # uninstall by removing these lines or running `tabtab uninstall slss`
-    [ -f {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish ]
-    and . {{ .chezmoi.homedir }}/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish
+    [ -f /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish ]
+    and . /Users/d/.local/share/yarn/global/node_modules/tabtab/.completions/slss.fish
 
     eval (direnv hook fish)
 end
+
+source /Users/d/Library/Preferences/org.dystroy.broot/launcher/fish/brset -g fish_user_paths "/usr/local/opt/expat/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/expat/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/lib/ruby/gems/2.6.0/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+set -gx PATH $PATH --help
+
+# begin -v completion
+-v --completion-fish | source
+# end -v completion
