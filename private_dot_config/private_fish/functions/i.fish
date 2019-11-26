@@ -1,4 +1,4 @@
-# Defined in /.config/fish/functions/i.fish @ line 1
-function i --wraps kitty -d "img viewer"
-    kitty +kitten icat $argv
+# Defined in /Users/d/.config/fish/functions/i.fish @ line 2
+function i --description 'img viewer'
+	kitty +kitten icat $argv
 end
