@@ -23,8 +23,8 @@ SETUVAR GENCOMP_COBRA_TARGETS:pet\x1ecorgi\x1edive\x1ecobra\x1eglooctl
 SETUVAR --export GITHUB_USER:dmazhukov
 SETUVAR --export GIT_PAGER:less
 SETUVAR --export GO111MODULE:on
-SETUVAR --export GOBIN:{{ .chezmoi.homedir }}/go/bin
-SETUVAR --export --path GOPATH:{{ .chezmoi.homedir }}/go
+SETUVAR --export GOBIN:{{ .chezmoi.homeDir }}/go/bin
+SETUVAR --export --path GOPATH:{{ .chezmoi.homeDir }}/go
 SETUVAR --export HIGHLIGHT_OPTIONS:\x2dOtruecolor\x1e\x2d\x2dforce\x3dslim\x1e\x2ds\x1ebase16/dracula
 SETUVAR HLSTYLE:base16/dracula
 SETUVAR --export HOMEBREW_NO_AUTO_UPDATE:1
@@ -36,7 +36,7 @@ SETUVAR --export LESSTERM:xterm\x2d256color
 SETUVAR --export LESS_TERMCAP_zz:\x1b\x5b0m
 SETUVAR --export LV:\x2dc
 SETUVAR MICRO_TRUECOLOR:1
-SETUVAR --export NQDIR:{{ .chezmoi.homedir }}/\x2enq/
+SETUVAR --export NQDIR:{{ .chezmoi.homeDir }}/\x2enq/
 SETUVAR --export PAGER:less
 SETUVAR --export PASSWORD_STORE_ENABLE_EXTENSIONS:true
 SETUVAR --export PISTOL_CHROMA_FORMATTER:terminal16m
@@ -45,10 +45,10 @@ SETUVAR SKIM_DEFAULT_COMMAND:fd\x20\x2d\x2dtype\x20f\x20\x7c\x7c\x20git\x20ls\x2
 SETUVAR --export SKIM_DEFAULT_OPTIONS:\x2d\x2dansi\x20\x2d\x2dtabstop\x3d2
 SETUVAR --export SSH_KEY:ssh\x2drsa\x20AAAAB3NzaC1yc2EAAAADAQABAAABAQCrMY2PNF3DZH62qTn8WrSsnG5L/N9fq81aGCYlOKOAGaemHLtAQbktYDKi7PGoGR4iatnoKjD43ob\x2bwnNqoJcPCkb7eO7uIMmrKPvXQXhWUrKObkAmiwZfTtiHKYppmwaUhztVT40gJJHTWGav5o45rmXcWlhcHS8Dt20qUHJ1zqgcLxdZQ0I/lv9G2OIwBOaP\x2bKBv0HqwYz61fsFa0fb7LefuWv4XFZKvrOSKkWFnO//B5EpCL4Uj7h9rS62q20NauuQ\x2b7xfQIAJN\x2bAUGXf04Jb0zG/hW9neuIq9xLtNjCHnqoL\x2bFHS6Pw0GKqxFsJhDzOceB5CELQfL\x2bpd15qQG5\x20d\x40moonshine
 SETUVAR --export TERM:xterm\x2d256color
-SETUVAR --export --path TODO_DB_PATH:{{ .chezmoi.homedir }}/Dropbox/todo\x2ejson
+SETUVAR --export --path TODO_DB_PATH:{{ .chezmoi.homeDir }}/Dropbox/todo\x2ejson
 SETUVAR --export VISUAL:micro
-SETUVAR --export VIVID_DATABASE:{{ .chezmoi.homedir }}/\x2econfig/vivid/filetypes\x2eyml
-SETUVAR --export XDG_CONFIG_HOME:{{ .chezmoi.homedir }}/\x2econfig
+SETUVAR --export VIVID_DATABASE:{{ .chezmoi.homeDir }}/\x2econfig/vivid/filetypes\x2eyml
+SETUVAR --export XDG_CONFIG_HOME:{{ .chezmoi.homeDir }}/\x2econfig
 SETUVAR __brew_prefix:/usr/local
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __fish_init_2_39_8:\x1d

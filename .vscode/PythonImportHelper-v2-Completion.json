@@ -1,0 +1,82 @@
+[
+    {
+        "label": "print_function",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
+        "label": "escape",
+        "kind": 2,
+        "importPath": "private_dot_config.private_fish.functions.__bass",
+        "description": "private_dot_config.private_fish.functions.__bass",
+        "peekOfCode": "def escape(string):\n    # use json.dumps to reliably escape quotes and backslashes\n    return json.dumps(string).replace(r'$', r'\\$')\ndef comment(string):\n    return '\\n'.join(['# ' + line for line in string.split('\\n')])\ndef gen_script():\n    divider = '-__-__-__bass___-env-output-__bass_-__-__-__-__'\n    # Use the following instead of /usr/bin/env to read environment so we can\n    # deal with multi-line environment variables (and other odd cases).\n    env_reader = \"python -c 'import os,json; print(json.dumps({k:v for k,v in os.environ.items()}))'\"",
+        "detail": "private_dot_config.private_fish.functions.__bass",
+        "documentation": {}
+    },
+    {
+        "label": "comment",
+        "kind": 2,
+        "importPath": "private_dot_config.private_fish.functions.__bass",
+        "description": "private_dot_config.private_fish.functions.__bass",
+        "peekOfCode": "def comment(string):\n    return '\\n'.join(['# ' + line for line in string.split('\\n')])\ndef gen_script():\n    divider = '-__-__-__bass___-env-output-__bass_-__-__-__-__'\n    # Use the following instead of /usr/bin/env to read environment so we can\n    # deal with multi-line environment variables (and other odd cases).\n    env_reader = \"python -c 'import os,json; print(json.dumps({k:v for k,v in os.environ.items()}))'\"\n    args = [BASH, '-c', env_reader]\n    output = subprocess.check_output(args, universal_newlines=True)\n    old_env = output.strip()",
+        "detail": "private_dot_config.private_fish.functions.__bass",
+        "documentation": {}
+    },
+    {
+        "label": "gen_script",
+        "kind": 2,
+        "importPath": "private_dot_config.private_fish.functions.__bass",
+        "description": "private_dot_config.private_fish.functions.__bass",
+        "peekOfCode": "def gen_script():\n    divider = '-__-__-__bass___-env-output-__bass_-__-__-__-__'\n    # Use the following instead of /usr/bin/env to read environment so we can\n    # deal with multi-line environment variables (and other odd cases).\n    env_reader = \"python -c 'import os,json; print(json.dumps({k:v for k,v in os.environ.items()}))'\"\n    args = [BASH, '-c', env_reader]\n    output = subprocess.check_output(args, universal_newlines=True)\n    old_env = output.strip()\n    command = '{}\\n(echo \"{}\"; {}; echo \"{}\"; alias)'.format(\n        ' '.join(sys.argv[1:]).rstrip().rstrip(';'),",
+        "detail": "private_dot_config.private_fish.functions.__bass",
+        "documentation": {}
+    },
+    {
+        "label": "BASH",
+        "kind": 5,
+        "importPath": "private_dot_config.private_fish.functions.__bass",
+        "description": "private_dot_config.private_fish.functions.__bass",
+        "peekOfCode": "BASH = 'bash'\ndef escape(string):\n    # use json.dumps to reliably escape quotes and backslashes\n    return json.dumps(string).replace(r'$', r'\\$')\ndef comment(string):\n    return '\\n'.join(['# ' + line for line in string.split('\\n')])\ndef gen_script():\n    divider = '-__-__-__bass___-env-output-__bass_-__-__-__-__'\n    # Use the following instead of /usr/bin/env to read environment so we can\n    # deal with multi-line environment variables (and other odd cases).",
+        "detail": "private_dot_config.private_fish.functions.__bass",
+        "documentation": {}
+    }
+]
